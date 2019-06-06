@@ -21,8 +21,8 @@ public class MovieCatalogResource {
 	@RequestMapping(value = "{movieId}",method = RequestMethod.GET)
 	public MovieDetails getMovieDetails(@PathVariable("movieId") String movieId) {
 		
-	 MovieInfo mi = template.getForObject("http://localhost:6002/movieinfo/movie/"+movieId, MovieInfo.class);
-	 Ratings ratings = template.getForObject("http://localhost:6003/movierating/ratings/"+movieId, Ratings.class);
+	 MovieInfo mi = template.getForObject("http://MOVIEINFO/movieinfo/movie/"+movieId, MovieInfo.class);
+	 Ratings ratings = template.getForObject("http://MOVIERATING/movierating/ratings/"+movieId, Ratings.class);
 		
 	 MovieDetails details = new MovieDetails(movieId, mi.getMovieName(), mi.getDesc(), ratings.getRating());
 	 
